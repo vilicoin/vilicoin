@@ -43,7 +43,7 @@ Build Litecoin Core
 
 1. Clone the Litecoin Core source code:
 
-        git clone https://github.com/litecoin-project/litecoin
+        git clone https://github.com/vilicoin/litecoin
         cd litecoin
 
 2.  Build Litecoin Core:

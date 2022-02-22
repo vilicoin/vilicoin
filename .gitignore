@@ -124,3 +124,8 @@ db4/
 
 # clang-check
 *.plist
+
+
+*.patch
+!depends/patches/**/*.patch
+!depends/Makefile
