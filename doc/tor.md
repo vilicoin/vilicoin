@@ -1,4 +1,4 @@
-TOR SUPPORT IN LITECOIN
+TOR SUPPORT IN VILICOIN
 ======================
 
 It is possible to run Vilicoin as a Tor hidden service, and connect to such services.

@@ -280,9 +280,9 @@ def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, jobs=1, enable_cove
         print("%sWARNING!%s There is a cache directory here: %s. If tests fail unexpectedly, try deleting the cache directory." % (BOLD[1], BOLD[0], cache_dir))
 
     #Set env vars
-    if "LITECOIND" not in os.environ:
-        os.environ["LITECOIND"] = build_dir + '/src/litecoind' + exeext
-        os.environ["LITECOINCLI"] = build_dir + '/src/litecoin-cli' + exeext
+    if "VILICOIND" not in os.environ:
+        os.environ["VILICOIND"] = build_dir + '/src/litecoind' + exeext
+        os.environ["VILICOINCLI"] = build_dir + '/src/litecoin-cli' + exeext
 
     tests_dir = src_dir + '/test/functional/'
 
