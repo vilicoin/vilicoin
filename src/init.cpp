@@ -531,8 +531,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/vilicoin/litecoin>";
-    const std::string URL_WEBSITE = "<https://litecoin.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/vilicoin/vilicoin>";
+    const std::string URL_WEBSITE = "<https://vilicoin.org>";
 
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2011, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +

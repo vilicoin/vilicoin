@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.litecoin.Vilicoin-Qt";
+        return @"org.vilicoin.Vilicoin-Qt";
     } else {
         return [self __bundleIdentifier];
     }

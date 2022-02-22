@@ -175,7 +175,7 @@
     </message>
     <message>
         <source>Send coins to a Vilicoin address</source>
-        <translation>Slanje novca na litecoin adresu</translation>
+        <translation>Slanje novca na vilicoin adresu</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -227,11 +227,11 @@
     </message>
     <message>
         <source>Sign messages with your Vilicoin addresses to prove you own them</source>
-        <translation>Poruku potpišemo s litecoin adresom, kako bi dokazali vlasništvo nad tom adresom</translation>
+        <translation>Poruku potpišemo s vilicoin adresom, kako bi dokazali vlasništvo nad tom adresom</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Vilicoin addresses</source>
-        <translation>Provjeravanje poruke, kao dokaz, da je potpisana navedenom litecoin adresom</translation>
+        <translation>Provjeravanje poruke, kao dokaz, da je potpisana navedenom vilicoin adresom</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -250,8 +250,8 @@
         <translation>Traka kartica</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and litecoin: URIs)</source>
-        <translation>Zatraži uplatu (stvara QR kod i litecoin: URI adresu)</translation>
+        <source>Request payments (generates QR codes and vilicoin: URIs)</source>
+        <translation>Zatraži uplatu (stvara QR kod i vilicoin: URI adresu)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -262,8 +262,8 @@
         <translation>Prikaži popis korištenih adresa i oznaka za primanje novca</translation>
     </message>
     <message>
-        <source>Open a litecoin: URI or payment request</source>
-        <translation>Otvori litecoin: URI adresu ili zahtjev za uplatu</translation>
+        <source>Open a vilicoin: URI or payment request</source>
+        <translation>Otvori vilicoin: URI adresu ili zahtjev za uplatu</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -423,7 +423,7 @@
     </message>
     <message>
         <source>The label associated with this address list entry</source>
-        <translation>Oznaka litecoin adrese</translation>
+        <translation>Oznaka vilicoin adrese</translation>
     </message>
     <message>
         <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
@@ -617,7 +617,7 @@
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Izaberite željeni najmanji dio litecoina koji će biti prikazan u sučelju i koji će se koristiti za plaćanje.</translation>
+        <translation>Izaberite željeni najmanji dio vilicoina koji će biti prikazan u sučelju i koji će se koristiti za plaćanje.</translation>
     </message>
     <message>
         <source>&amp;OK</source>

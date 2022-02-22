@@ -370,8 +370,8 @@
         <translation>Дапамога</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and litecoin: URIs)</source>
-        <translation>Запатрабаваць плацёж (генеруецца QR-код для litecoin URI)</translation>
+        <source>Request payments (generates QR codes and vilicoin: URIs)</source>
+        <translation>Запатрабаваць плацёж (генеруецца QR-код для vilicoin URI)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -382,8 +382,8 @@
         <translation>Паказаць спіс адрасоў і метак для прымання</translation>
     </message>
     <message>
-        <source>Open a litecoin: URI or payment request</source>
-        <translation>Адкрыць litecoin: URI ці запыт плацяжу</translation>
+        <source>Open a vilicoin: URI or payment request</source>
+        <translation>Адкрыць vilicoin: URI ці запыт плацяжу</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>

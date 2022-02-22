@@ -4,10 +4,10 @@ TOPDIR=${TOPDIR:-$(git rev-parse --show-toplevel)}
 SRCDIR=${SRCDIR:-$TOPDIR/src}
 MANDIR=${MANDIR:-$TOPDIR/doc/man}
 
-VILICOIND=${VILICOIND:-$SRCDIR/litecoind}
-VILICOINCLI=${VILICOINCLI:-$SRCDIR/litecoin-cli}
-VILICOINTX=${VILICOINTX:-$SRCDIR/litecoin-tx}
-VILICOINQT=${VILICOINQT:-$SRCDIR/qt/litecoin-qt}
+VILICOIND=${VILICOIND:-$SRCDIR/vilicoind}
+VILICOINCLI=${VILICOINCLI:-$SRCDIR/vilicoin-cli}
+VILICOINTX=${VILICOINTX:-$SRCDIR/vilicoin-tx}
+VILICOINQT=${VILICOINQT:-$SRCDIR/qt/vilicoin-qt}
 
 [ ! -x $VILICOIND ] && echo "$VILICOIND not found or not executable." && exit 1
 

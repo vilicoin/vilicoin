@@ -5,7 +5,7 @@ Before every release candidate:
 
 * Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md#synchronising-translations).
 
-* Update manpages, see [gen-manpages.sh](https://github.com/vilicoin/litecoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/vilicoin/vilicoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -34,9 +34,9 @@ Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
     git clone https://github.com/vilicoin/gitian.sigs.ltc.git
-    git clone https://github.com/vilicoin/litecoin-detached-sigs.git
+    git clone https://github.com/vilicoin/vilicoin-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/vilicoin/litecoin.git
+    git clone https://github.com/vilicoin/vilicoin.git
 
 ### Vilicoin maintainers/release engineers, suggestion for writing release notes
 
@@ -61,7 +61,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./litecoin
+    pushd ./vilicoin
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.8.0)
     git fetch
@@ -95,7 +95,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../litecoin/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../vilicoin/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -103,7 +103,7 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url litecoin=/path/to/litecoin,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url vilicoin=/path/to/vilicoin,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
@@ -111,42 +111,42 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 ### Build and sign Vilicoin Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --num-make 2 --memory 3000 --commit litecoin=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/litecoin-*.tar.gz build/out/src/litecoin-*.tar.gz ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit vilicoin=v${VERSION} ../vilicoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.ltc/ ../vilicoin/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/vilicoin-*.tar.gz build/out/src/vilicoin-*.tar.gz ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit litecoin=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/litecoin-*-win-unsigned.tar.gz inputs/litecoin-win-unsigned.tar.gz
-    mv build/out/litecoin-*.zip build/out/litecoin-*.exe ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit vilicoin=v${VERSION} ../vilicoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.ltc/ ../vilicoin/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/vilicoin-*-win-unsigned.tar.gz inputs/vilicoin-win-unsigned.tar.gz
+    mv build/out/vilicoin-*.zip build/out/vilicoin-*.exe ../
 
-    ./bin/gbuild --num-make 2 --memory 3000 --commit litecoin=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/litecoin-*-osx-unsigned.tar.gz inputs/litecoin-osx-unsigned.tar.gz
-    mv build/out/litecoin-*.tar.gz build/out/litecoin-*.dmg ../
+    ./bin/gbuild --num-make 2 --memory 3000 --commit vilicoin=v${VERSION} ../vilicoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.ltc/ ../vilicoin/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/vilicoin-*-osx-unsigned.tar.gz inputs/vilicoin-osx-unsigned.tar.gz
+    mv build/out/vilicoin-*.tar.gz build/out/vilicoin-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`litecoin-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`litecoin-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`litecoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `litecoin-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`litecoin-${VERSION}-osx-unsigned.dmg`, `litecoin-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`vilicoin-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`vilicoin-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`vilicoin-${VERSION}-win[32|64]-setup-unsigned.exe`, `vilicoin-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`vilicoin-${VERSION}-osx-unsigned.dmg`, `vilicoin-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs.ltc/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import litecoin/contrib/gitian-keys/*.pgp
+    gpg --import vilicoin/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-linux ../litecoin/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-unsigned ../litecoin/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-unsigned ../litecoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-linux ../vilicoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-unsigned ../vilicoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-unsigned ../vilicoin/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -167,22 +167,22 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer litecoin-osx-unsigned.tar.gz to osx for signing
-    tar xf litecoin-osx-unsigned.tar.gz
+    transfer vilicoin-osx-unsigned.tar.gz to osx for signing
+    tar xf vilicoin-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf litecoin-win-unsigned.tar.gz
+    tar xf vilicoin-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/litecoin-detached-sigs
+    cd ~/vilicoin-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -195,25 +195,25 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [litecoin-detached-sigs](https://github.com/vilicoin/litecoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [vilicoin-detached-sigs](https://github.com/vilicoin/vilicoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-signed ../litecoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/litecoin-osx-signed.dmg ../litecoin-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../vilicoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.ltc/ ../vilicoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-signed ../vilicoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/vilicoin-osx-signed.dmg ../vilicoin-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.ltc/ ../litecoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-signed ../litecoin/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/litecoin-*win64-setup.exe ../litecoin-${VERSION}-win64-setup.exe
-    mv build/out/litecoin-*win32-setup.exe ../litecoin-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../vilicoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.ltc/ ../vilicoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-signed ../vilicoin/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/vilicoin-*win64-setup.exe ../vilicoin-${VERSION}-win64-setup.exe
+    mv build/out/vilicoin-*win32-setup.exe ../vilicoin-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -235,23 +235,23 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-litecoin-${VERSION}-aarch64-linux-gnu.tar.gz
-litecoin-${VERSION}-arm-linux-gnueabihf.tar.gz
-litecoin-${VERSION}-i686-pc-linux-gnu.tar.gz
-litecoin-${VERSION}-x86_64-linux-gnu.tar.gz
-litecoin-${VERSION}-osx64.tar.gz
-litecoin-${VERSION}-osx.dmg
-litecoin-${VERSION}.tar.gz
-litecoin-${VERSION}-win32-setup.exe
-litecoin-${VERSION}-win32.zip
-litecoin-${VERSION}-win64-setup.exe
-litecoin-${VERSION}-win64.zip
+vilicoin-${VERSION}-aarch64-linux-gnu.tar.gz
+vilicoin-${VERSION}-arm-linux-gnueabihf.tar.gz
+vilicoin-${VERSION}-i686-pc-linux-gnu.tar.gz
+vilicoin-${VERSION}-x86_64-linux-gnu.tar.gz
+vilicoin-${VERSION}-osx64.tar.gz
+vilicoin-${VERSION}-osx.dmg
+vilicoin-${VERSION}.tar.gz
+vilicoin-${VERSION}-win32-setup.exe
+vilicoin-${VERSION}-win32.zip
+vilicoin-${VERSION}-win64-setup.exe
+vilicoin-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the litecoin.org server, nor put them in the torrent*.
+space *do not upload these to the vilicoin.org server, nor put them in the torrent*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -261,24 +261,24 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the litecoin.org server.
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the vilicoin.org server.
 
 ```
 
-- Update litecoin.org version
+- Update vilicoin.org version
 
 - Announce the release:
 
-  - litecoin-dev and litecoin-dev mailing list
+  - vilicoin-dev and vilicoin-dev mailing list
 
-  - blog.litecoin.org blog post
+  - blog.vilicoin.org blog post
 
-  - Update title of #litecoin and #litecoin-dev on Freenode IRC
+  - Update title of #vilicoin and #vilicoin-dev on Freenode IRC
 
   - Optionally twitter, reddit /r/Vilicoin, ... but this will usually sort out itself
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/vilicoin/litecoin/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/vilicoin/vilicoin/releases/new) with a link to the archived release notes.
 
   - Celebrate
